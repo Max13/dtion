@@ -68,13 +68,13 @@ class Dtion implements Serializable
             throw new InvalidArgumentException('Lower boundary can either be string, int, float, callable or instance of Dtion\Contracts\Stringable. Received: '.gettype($upper));
         }
 
-        if (is_string($lower) || $lower instanceof Stringable) {
+        if ($lower instanceof Stringable) {
             $this->lower = (string) $lower;
         } else {
             $this->lower = $lower;
         }
 
-        if (is_string($upper) || $upper instanceof Stringable) {
+        if ($upper instanceof Stringable) {
             $this->upper = (string) $upper;
         } else {
             $this->upper = $upper;
