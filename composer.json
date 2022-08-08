@@ -1,0 +1,36 @@
+{
+    "name": "max13/dtion",
+    "description": "Dtion is a php class set allowing to store and serialize conditions and a result. For instace, it's easy to store something like: if date between X and Y, then amount is Z.",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Adnan RIHAN",
+            "email": "adnan@rihan.fr"
+        }
+    ],
+    "keywords": [
+        "conditional",
+        "serialization"
+    ],
+    "homepage": "https://github.com/max13/dtion",
+    "autoload": {
+        "classmap" : [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "require": {
+        "ext-json": "*",
+        "php": "^7.0 || ^8.0",
+        "laravel/serializable-closure": "^1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "fakerphp/faker": "^1.20"
+    }
+}
