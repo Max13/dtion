@@ -19,7 +19,7 @@ Expressing these intervals (as `DateInterval` or `CarbonInterval`) as conditions
 
 ## Installation
 
-You can use composer: `composer require max13/dtion:^1.0`
+You can use composer: `composer require max13/dtion`
 
 ## Usage
 
