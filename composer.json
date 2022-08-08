@@ -1,6 +1,6 @@
 {
     "name": "max13/dtion",
-    "description": "Dtion is a php class set allowing to store and serialize conditions and a result. For instace, it's easy to store something like: if date between X and Y, then amount is Z.",
+    "description": "Dtion allows you to serialize and unserialize conditions and results. For instace: if $x between 'A' and 'C', result is 'X'. Else if $x between 'D' and 'F', result is 'Y'.",
     "license": "MIT",
     "type": "library",
     "authors": [
