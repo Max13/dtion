@@ -1,0 +1,37 @@
+name: PHP Doc to Pages
+
+on: [push]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy-phpdoc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Create a config file
+        run: |
+          cat << EOF > doctum-config.php
+          <?php return new Doctum\Doctum('src/');
+          # <?php return new Doctum\Doctum('src/', [
+          #   'versions'  => Doctum\Version\GitVersionCollection::create('src/')
+          #                   # ->add('master')
+          #                   ->addFromTags('v1.*'),
+          #   'build_dir' => __DIR__ . '/build',
+          # ]);
+          EOF
+
+      - name: Build PHPDoc
+        uses: sudo-bot/action-doctum@v5
+        with:
+          config-file: doctum-config.php
+          method: "update"
+          # cli-args: "--output-format=github --no-ansi --no-progress -v"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
