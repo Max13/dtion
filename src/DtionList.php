@@ -5,12 +5,13 @@ namespace Dtion;
 use Countable;
 use Dtion\Exceptions\CriterionDoesntMatchException;
 use Serializable;
+use Stringable;
 
 /**
  * This class stores a list of Dtion, allowing the user to find() the
  * corresponding Dtion (therefor the result) among multiple conditions.
  */
-class DtionList implements Countable, Serializable
+class DtionList implements Countable, Serializable, Stringable
 {
     /**
      * Internal container
@@ -131,5 +132,11 @@ class DtionList implements Countable, Serializable
     public function unserialize($data) : void
     {
         $this->__unserialize(unserialize($data));
+    }
+
+    /** @inheritDoc */
+    public function __toString() : string
+    {
+        return serialize($this);
     }
 }

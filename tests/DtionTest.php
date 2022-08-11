@@ -231,4 +231,54 @@ class DtionTest extends TestCase
 
         $this->assertEquals($dtion, unserialize($serialized));
     }
+
+    public function testToStringWithStrings()
+    {
+        $lower = 'ghi';
+        $upper = 'rst';
+        $dtion = new Dtion($lower, $upper, null);
+        $stringed = (string) $dtion;
+
+        $this->assertEquals($dtion, unserialize($stringed));
+    }
+
+    public function testToStringWithInts()
+    {
+        $lower = 100;
+        $upper = 200;
+        $dtion = new Dtion($lower, $upper, null);
+        $stringed = (string) $dtion;
+
+        $this->assertEquals($dtion, unserialize($stringed));
+    }
+
+    public function testToStringWithFloats()
+    {
+        $lower = 0.1;
+        $upper = 0.2;
+        $dtion = new Dtion($lower, $upper, null);
+        $stringed = (string) $dtion;
+
+        $this->assertEquals($dtion, unserialize($stringed));
+    }
+
+    public function testToStringWithCallables()
+    {
+        $lower = function () { return 100; };
+        $upper = function () { return 200; };
+        $dtion = new Dtion($lower, $upper, null);
+        $stringed = (string) $dtion;
+
+        $this->assertEquals($dtion, unserialize($stringed));
+    }
+
+    public function testToStringWithStringable()
+    {
+        $lower = new Stringable('ghi');
+        $upper = new Stringable('rst');
+        $dtion = new Dtion($lower, $upper, null);
+        $stringed = (string) $dtion;
+
+        $this->assertEquals($dtion, unserialize($stringed));
+    }
 }

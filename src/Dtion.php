@@ -2,15 +2,15 @@
 
 namespace Dtion;
 
-use Stringable;
 use InvalidArgumentException;
 use Laravel\SerializableClosure\SerializableClosure;
 use Serializable;
+use Stringable;
 
 /**
  * This class stores a condition (lower and upper boundaries) and a result.
  */
-class Dtion implements Serializable
+class Dtion implements Serializable, Stringable
 {
     /**
      * Lower boundary
@@ -174,5 +174,11 @@ class Dtion implements Serializable
     public function unserialize($data) : void
     {
         $this->__unserialize(unserialize($data));
+    }
+
+    /** @inheritDoc */
+    public function __toString() : string
+    {
+        return serialize($this);
     }
 }
