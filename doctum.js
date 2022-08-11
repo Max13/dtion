@@ -28,6 +28,7 @@
         {"type":"Method","fromName":"Dtion\\Dtion","fromLink":"Dtion/Dtion.html","link":"Dtion/Dtion.html#method___unserialize","name":"Dtion\\Dtion::__unserialize","doc":""},
         {"type":"Method","fromName":"Dtion\\Dtion","fromLink":"Dtion/Dtion.html","link":"Dtion/Dtion.html#method_serialize","name":"Dtion\\Dtion::serialize","doc":""},
         {"type":"Method","fromName":"Dtion\\Dtion","fromLink":"Dtion/Dtion.html","link":"Dtion/Dtion.html#method_unserialize","name":"Dtion\\Dtion::unserialize","doc":""},
+        {"type":"Method","fromName":"Dtion\\Dtion","fromLink":"Dtion/Dtion.html","link":"Dtion/Dtion.html#method___toString","name":"Dtion\\Dtion::__toString","doc":""},
             
                                                 {"type":"Class","fromName":"Dtion","fromLink":"Dtion.html","link":"Dtion/DtionList.html","name":"Dtion\\DtionList","doc":"<p>This class stores a list of Dtion, allowing the user to find() the\ncorresponding Dtion (therefor the result) among multiple conditions.</p>"},
                                 {"type":"Method","fromName":"Dtion\\DtionList","fromLink":"Dtion/DtionList.html","link":"Dtion/DtionList.html#method___construct","name":"Dtion\\DtionList::__construct","doc":"<p>Construct an empty Dtion</p>"},
@@ -40,6 +41,7 @@
         {"type":"Method","fromName":"Dtion\\DtionList","fromLink":"Dtion/DtionList.html","link":"Dtion/DtionList.html#method___unserialize","name":"Dtion\\DtionList::__unserialize","doc":""},
         {"type":"Method","fromName":"Dtion\\DtionList","fromLink":"Dtion/DtionList.html","link":"Dtion/DtionList.html#method_serialize","name":"Dtion\\DtionList::serialize","doc":""},
         {"type":"Method","fromName":"Dtion\\DtionList","fromLink":"Dtion/DtionList.html","link":"Dtion/DtionList.html#method_unserialize","name":"Dtion\\DtionList::unserialize","doc":""},
+        {"type":"Method","fromName":"Dtion\\DtionList","fromLink":"Dtion/DtionList.html","link":"Dtion/DtionList.html#method___toString","name":"Dtion\\DtionList::__toString","doc":""},
             
                                                 {"type":"Class","fromName":"Dtion\\Exceptions","fromLink":"Dtion/Exceptions.html","link":"Dtion/Exceptions/CriterionDoesntMatchException.html","name":"Dtion\\Exceptions\\CriterionDoesntMatchException","doc":"<p>Exception thrown when a criteria doesn't match any Dtion in DtionList.</p>"},
                 
