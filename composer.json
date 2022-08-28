@@ -15,14 +15,15 @@
     ],
     "homepage": "https://github.com/max13/dtion",
     "autoload": {
-        "classmap" : [
-            "src/"
-        ]
+        "files": ["src/Stringable.php"],
+        "psr-4" : {
+            "Dtion\\": "src/"
+        }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "Dtion\\Tests\\": "tests/"
+        }
     },
     "require": {
         "ext-json": "*",
