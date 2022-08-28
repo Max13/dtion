@@ -4,6 +4,8 @@ namespace Dtion;
 
 use Countable;
 use Dtion\Exceptions\CriterionDoesntMatchException;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 use Serializable;
 use Stringable;
 
@@ -11,7 +13,12 @@ use Stringable;
  * This class stores a list of Dtion, allowing the user to find() the
  * corresponding Dtion (therefor the result) among multiple conditions.
  */
-class DtionList implements Countable, Serializable, Stringable
+class DtionList implements
+    Arrayable,
+    Jsonable,
+    Countable,
+    Serializable,
+    Stringable
 {
     /**
      * Internal container
@@ -102,6 +109,52 @@ class DtionList implements Countable, Serializable, Stringable
         }
 
         return $dtion->result();
+    }
+
+    /**
+     * Instanciate from array of arrays, given by self::toArray() method
+     *
+     * @param  array $data
+     * @return self
+     */
+    public static function fromArray(array $data)
+    {
+        $dtionList = new static;
+
+        foreach ($data as $dtionArray) {
+            $dtionList->push(Dtion::fromArray($dtionArray));
+        }
+
+        return $dtionList;
+    }
+
+    /** @inheritDoc */
+    public function toArray()
+    {
+        $data = [];
+
+        foreach ($this->container as $dtion) {
+            $data[] = $dtion->toArray();
+        }
+
+        return $data;
+    }
+
+    /**
+     * Instanciate from JSON, given by self::toJson() method
+     *
+     * @param  string $data
+     * @return self
+     */
+    public static function fromJson($data)
+    {
+        return static::fromArray(json_decode($data, true));
+    }
+
+    /** @inheritDoc */
+    public function toJson($options = 0)
+    {
+        return json_encode($this->toArray(), $options);
     }
 
     /** @inheritDoc */
