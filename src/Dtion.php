@@ -2,6 +2,7 @@
 
 namespace Dtion;
 
+use Carbon\CarbonInterval;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use InvalidArgumentException;
@@ -42,8 +43,8 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
      * Callables boundaries are called with the criterion as first argument,
      * but will be returned as callable for the result.
      *
-     * @param  string|int|float|callable|Stringable $lower  Lower boundary
-     * @param  string|int|float|callable|Stringable $upper  Upper boundary
+     * @param  string|int|float|callable|CarbonInterval|Stringable $lower  Lower boundary
+     * @param  string|int|float|callable|CarbonInterval|Stringable $upper  Upper boundary
      * @param  mixed                                $result
      *
      * @return void
@@ -55,9 +56,10 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
             && !is_int($lower)
             && !is_float($lower)
             && !is_callable($lower)
+            && !($lower instanceof CarbonInterval)
             && !($lower instanceof Stringable)
         ) {
-            throw new InvalidArgumentException('Lower boundary can either be string, int, float, callable or instance of Dtion\Contracts\Stringable. Received: '.gettype($lower));
+            throw new InvalidArgumentException('Lower boundary can either be string, int, float, callable, instance of Dtion\Contracts\Stringable or instance of Carbon\CarbonInterval. Received: '.gettype($lower));
         }
 
         if (
@@ -65,18 +67,31 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
             && !is_int($upper)
             && !is_float($upper)
             && !is_callable($upper)
+            && !($upper instanceof CarbonInterval)
             && !($upper instanceof Stringable)
         ) {
-            throw new InvalidArgumentException('Lower boundary can either be string, int, float, callable or instance of Dtion\Contracts\Stringable. Received: '.gettype($upper));
+            throw new InvalidArgumentException('Upper boundary can either be string, int, float, callable, instance of Dtion\Contracts\Stringable or instance of Carbon\CarbonInterval. Received: '.gettype($upper));
         }
 
-        if ($lower instanceof Stringable) {
+        if ($lower instanceof CarbonInterval) {
+            $this->lower = $lower->settings([
+                'toStringFormat' => function (CarbonInterval $interval) {
+                    return $interval->spec();
+                },
+            ]);
+        } elseif ($lower instanceof Stringable) {
             $this->lower = (string) $lower;
         } else {
             $this->lower = $lower;
         }
 
-        if ($upper instanceof Stringable) {
+        if ($upper instanceof CarbonInterval) {
+            $this->upper = $upper->settings([
+                'toStringFormat' => function (CarbonInterval $interval) {
+                    return $interval->spec();
+                },
+            ]);
+        } elseif ($upper instanceof Stringable) {
             $this->upper = (string) $upper;
         } else {
             $this->upper = $upper;
