@@ -17,7 +17,7 @@
 
     var searchIndex = [
                         {"type":"Namespace","link":"[Global_Namespace].html","name":"","doc":"Namespace "},{"type":"Namespace","link":"Dtion.html","name":"Dtion","doc":"Namespace Dtion"},{"type":"Namespace","link":"Dtion/Exceptions.html","name":"Dtion\\Exceptions","doc":"Namespace Dtion\\Exceptions"},                    {"type":"Interface","link":"Stringable.html","name":"Stringable","doc":"<p>Interface to store stringable elements in Dtion</p>"},
-                                {"type":"Method","fromName":"Stringable","fromLink":"Stringable.html","link":"Stringable.html#method___toString","name":"Stringable::__toString","doc":"<p>Implicitely implements PHP Stringable interface\nfor PHP&gt;=8.0 .</p>"},
+                                {"type":"Method","fromName":"Stringable","fromLink":"Stringable.html","link":"Stringable.html#method___toString","name":"Stringable::__toString","doc":"<p>Implicitely implements PHP Stringable interface\nfor PHP&lt;=8.0 .</p>"},
             
                                                         {"type":"Class","fromName":"Dtion","fromLink":"Dtion.html","link":"Dtion/Dtion.html","name":"Dtion\\Dtion","doc":"<p>This class stores a condition (lower and upper boundaries) and a result.</p>"},
                                 {"type":"Method","fromName":"Dtion\\Dtion","fromLink":"Dtion/Dtion.html","link":"Dtion/Dtion.html#method___construct","name":"Dtion\\Dtion::__construct","doc":"<p>Instanciate a Dtion with a lower boundary, upper boundary and\nthe result when the criterion is between these boundaries.</p>"},
@@ -55,7 +55,7 @@
                                                 {"type":"Class","fromName":"Dtion\\Exceptions","fromLink":"Dtion/Exceptions.html","link":"Dtion/Exceptions/CriterionDoesntMatchException.html","name":"Dtion\\Exceptions\\CriterionDoesntMatchException","doc":"<p>Exception thrown when a criteria doesn't match any Dtion in DtionList.</p>"},
                 
                     {"type":"Class","link":"Stringable.html","name":"Stringable","doc":"<p>Interface to store stringable elements in Dtion</p>"},
-                                {"type":"Method","fromName":"Stringable","fromLink":"Stringable.html","link":"Stringable.html#method___toString","name":"Stringable::__toString","doc":"<p>Implicitely implements PHP Stringable interface\nfor PHP&gt;=8.0 .</p>"},
+                                {"type":"Method","fromName":"Stringable","fromLink":"Stringable.html","link":"Stringable.html#method___toString","name":"Stringable::__toString","doc":"<p>Implicitely implements PHP Stringable interface\nfor PHP&lt;=8.0 .</p>"},
             
                                 // Fix trailing commas in the index
         {}
