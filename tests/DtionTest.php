@@ -232,6 +232,106 @@ class DtionTest extends TestCase
         $this->assertEquals($dtion, unserialize($serialized));
     }
 
+    public function testToArrayWithStrings()
+    {
+        $lower = 'ghi';
+        $upper = 'rst';
+        $dtion = new Dtion($lower, $upper, null);
+        $array = $dtion->toArray();
+
+        $this->assertEquals($dtion, Dtion::fromArray($array));
+    }
+
+    public function testToArrayWithInts()
+    {
+        $lower = 100;
+        $upper = 200;
+        $dtion = new Dtion($lower, $upper, null);
+        $array = $dtion->toArray();
+
+        $this->assertEquals($dtion, Dtion::fromArray($array));
+    }
+
+    public function testToArrayWithFloats()
+    {
+        $lower = 0.1;
+        $upper = 0.2;
+        $dtion = new Dtion($lower, $upper, null);
+        $array = $dtion->toArray();
+
+        $this->assertEquals($dtion, Dtion::fromArray($array));
+    }
+
+    public function testToArrayWithCallables()
+    {
+        $lower = function () { return 100; };
+        $upper = function () { return 200; };
+        $dtion = new Dtion($lower, $upper, null);
+        $array = $dtion->toArray();
+
+        $this->assertEquals($dtion, Dtion::fromArray($array));
+    }
+
+    public function testToArrayWithStringable()
+    {
+        $lower = new Stringable('ghi');
+        $upper = new Stringable('rst');
+        $dtion = new Dtion($lower, $upper, null);
+        $array = $dtion->toArray();
+
+        $this->assertEquals($dtion, Dtion::fromArray($array));
+    }
+
+    public function testToJsonWithStrings()
+    {
+        $lower = 'ghi';
+        $upper = 'rst';
+        $dtion = new Dtion($lower, $upper, null);
+        $json = $dtion->toJson();
+
+        $this->assertEquals($dtion, Dtion::fromJson($json));
+    }
+
+    public function testToJsonWithInts()
+    {
+        $lower = 100;
+        $upper = 200;
+        $dtion = new Dtion($lower, $upper, null);
+        $json = $dtion->toJson();
+
+        $this->assertEquals($dtion, Dtion::fromJson($json));
+    }
+
+    public function testToJsonWithFloats()
+    {
+        $lower = 0.1;
+        $upper = 0.2;
+        $dtion = new Dtion($lower, $upper, null);
+        $json = $dtion->toJson();
+
+        $this->assertEquals($dtion, Dtion::fromJson($json));
+    }
+
+    public function testToJsonWithCallables()
+    {
+        $lower = function () { return 100; };
+        $upper = function () { return 200; };
+        $dtion = new Dtion($lower, $upper, null);
+        $json = $dtion->toJson();
+
+        $this->assertEquals($dtion, Dtion::fromJson($json));
+    }
+
+    public function testToJsonWithStringable()
+    {
+        $lower = new Stringable('ghi');
+        $upper = new Stringable('rst');
+        $dtion = new Dtion($lower, $upper, null);
+        $json = $dtion->toJson();
+
+        $this->assertEquals($dtion, Dtion::fromJson($json));
+    }
+
     public function testToStringWithStrings()
     {
         $lower = 'ghi';

@@ -2,6 +2,8 @@
 
 namespace Dtion;
 
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 use InvalidArgumentException;
 use Laravel\SerializableClosure\SerializableClosure;
 use Serializable;
@@ -10,7 +12,7 @@ use Stringable;
 /**
  * This class stores a condition (lower and upper boundaries) and a result.
  */
-class Dtion implements Serializable, Stringable
+class Dtion implements Arrayable, Jsonable, Serializable, Stringable
 {
     /**
      * Lower boundary
@@ -133,33 +135,89 @@ class Dtion implements Serializable, Stringable
         return $criterion >= $lower && $criterion <= $upper;
     }
 
+    /**
+     * Normalize data if necessary, before sending to constructor
+     *
+     * @param  array $data
+     * @return array
+     */
+    public static function normalize(array $data)
+    {
+        $serializableClosure = 'O:47:"Laravel\SerializableClosure\SerializableClosure"';
+
+        foreach (['lower', 'upper', 'result'] as $key) {
+            // Check if serialized SerializableClosure
+            if (
+                   is_string($data[$key])
+                && substr($data[$key], 0, strlen($serializableClosure)) === $serializableClosure
+            ) {
+                $data[$key] = unserialize($data[$key]);
+            }
+
+            if ($data[$key] instanceof SerializableClosure) {
+                $data[$key] = $data[$key]->getClosure();
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Instanciate from array, given by self::toArray() method
+     *
+     * @param  array $data
+     * @return self
+     */
+    public static function fromArray(array $data)
+    {
+        $data = static::normalize($data);
+
+        return new static($data['lower'], $data['upper'], $data['result']);
+    }
+
+    /** @inheritDoc */
+    public function toArray()
+    {
+        $data = [];
+
+        foreach (['lower', 'upper', 'result'] as $key) {
+            if (is_callable($this->{$key})) {
+                $data[$key] = serialize(new SerializableClosure($this->{$key}));
+            } else {
+                $data[$key] = $this->{$key};
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Instanciate from JSON, given by self::toJson() method
+     *
+     * @param  string $data
+     * @return self
+     */
+    public static function fromJson($data)
+    {
+        return static::fromArray(json_decode($data, true));
+    }
+
+    /** @inheritDoc */
+    public function toJson($options = 0)
+    {
+        return json_encode($this->toArray(), $options);
+    }
+
     /** @inheritDoc */
     public function __serialize() : array
     {
-        return [
-            'lower' => is_callable($this->lower)
-                        ? new SerializableClosure($this->lower) : $this->lower,
-            'upper' => is_callable($this->upper)
-                        ? new SerializableClosure($this->upper) : $this->upper,
-            'result' => is_callable($this->result)
-                        ? new SerializableClosure($this->result) : $this->result,
-        ];
+        return $this->toArray();
     }
 
     /** @inheritDoc */
     public function __unserialize(array $data) : void
     {
-        if ($data['lower'] instanceof SerializableClosure) {
-            $data['lower'] = $data['lower']->getClosure();
-        }
-
-        if ($data['upper'] instanceof SerializableClosure) {
-            $data['upper'] = $data['upper']->getClosure();
-        }
-
-        if ($data['result'] instanceof SerializableClosure) {
-            $data['result'] = $data['result']->getClosure();
-        }
+        $data = static::normalize($data);
 
         $this->__construct($data['lower'], $data['upper'], $data['result']);
     }
