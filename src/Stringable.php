@@ -9,7 +9,7 @@ if(!interface_exists('Stringable')) {
     {
         /**
          * Implicitely implements PHP Stringable interface
-         * for PHP>=8.0 .
+         * for PHP<=8.0 .
          *
          * @return string
          */
