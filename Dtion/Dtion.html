@@ -128,7 +128,7 @@
                     void
                 </div>
                 <div class="col-md-8">
-                    <a href="#method___construct">__construct</a>(string|int|float|callable|<a href="../Stringable.html">Stringable</a> $lower, string|int|float|callable|<a href="../Stringable.html">Stringable</a> $upper, mixed $result)
+                    <a href="#method___construct">__construct</a>(string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a> $lower, string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a> $upper, mixed $result)
         
                                             <p><p>Instanciate a Dtion with a lower boundary, upper boundary and
 the result when the criterion is between these boundaries.</p></p>                </div>
@@ -279,9 +279,9 @@ the result when the criterion is between these boundaries.</p></p>              
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 51</div>
+        <div class="location">at line 52</div>
         <code>                    void
-    <strong>__construct</strong>(string|int|float|callable|<a href="../Stringable.html">Stringable</a> $lower, string|int|float|callable|<a href="../Stringable.html">Stringable</a> $upper, mixed $result)
+    <strong>__construct</strong>(string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a> $lower, string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a> $upper, mixed $result)
         </code>
     </h3>
     <div class="details">    
@@ -298,12 +298,12 @@ but will be returned as callable for the result.</p></p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string|int|float|callable|<a href="../Stringable.html">Stringable</a></td>
+                <td>string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a></td>
                 <td>$lower</td>
                 <td><p>Lower boundary</p></td>
             </tr>
                     <tr>
-                <td>string|int|float|callable|<a href="../Stringable.html">Stringable</a></td>
+                <td>string|int|float|callable|<abbr title="Carbon\CarbonInterval">CarbonInterval</abbr>|<a href="../Stringable.html">Stringable</a></td>
                 <td>$upper</td>
                 <td><p>Upper boundary</p></td>
             </tr>
@@ -333,7 +333,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_make">
-        <div class="location">at line 95</div>
+        <div class="location">at line 110</div>
         <code>        static            <a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
     <strong>make</strong>($lowerBoundary, $upperBoundary, $result)
         </code>
@@ -397,7 +397,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_result">
-        <div class="location">at line 105</div>
+        <div class="location">at line 120</div>
         <code>                    mixed
     <strong>result</strong>()
         </code>
@@ -429,7 +429,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_match">
-        <div class="location">at line 117</div>
+        <div class="location">at line 132</div>
         <code>                    bool
     <strong>match</strong>(mixed $criterion)
         </code>
@@ -471,7 +471,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_normalize">
-        <div class="location">at line 144</div>
+        <div class="location">at line 159</div>
         <code>        static            array
     <strong>normalize</strong>(array $data)
         </code>
@@ -513,7 +513,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_fromArray">
-        <div class="location">at line 171</div>
+        <div class="location">at line 186</div>
         <code>        static            <a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
     <strong>fromArray</strong>(array $data)
         </code>
@@ -555,7 +555,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at line 179</div>
+        <div class="location">at line 194</div>
         <code>                    
     <strong>toArray</strong>()
         </code>
@@ -579,7 +579,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_fromJson">
-        <div class="location">at line 200</div>
+        <div class="location">at line 215</div>
         <code>        static            <a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
     <strong>fromJson</strong>(string $data)
         </code>
@@ -621,7 +621,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_toJson">
-        <div class="location">at line 206</div>
+        <div class="location">at line 221</div>
         <code>                    
     <strong>toJson</strong>($options = 0)
         </code>
@@ -655,7 +655,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___serialize">
-        <div class="location">at line 212</div>
+        <div class="location">at line 227</div>
         <code>                    array
     <strong>__serialize</strong>()
         </code>
@@ -688,7 +688,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___unserialize">
-        <div class="location">at line 218</div>
+        <div class="location">at line 233</div>
         <code>                    void
     <strong>__unserialize</strong>(array $data)
         </code>
@@ -731,7 +731,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_serialize">
-        <div class="location">at line 226</div>
+        <div class="location">at line 241</div>
         <code>                    string|null
     <strong>serialize</strong>()
         </code>
@@ -764,7 +764,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_unserialize">
-        <div class="location">at line 232</div>
+        <div class="location">at line 247</div>
         <code>                    void
     <strong>unserialize</strong>($data)
         </code>
@@ -807,7 +807,7 @@ but will be returned as callable for the result.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at line 238</div>
+        <div class="location">at line 253</div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
