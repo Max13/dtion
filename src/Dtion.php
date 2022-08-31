@@ -67,7 +67,7 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
             && !is_callable($upper)
             && !($upper instanceof Stringable)
         ) {
-            throw new InvalidArgumentException('Lower boundary can either be string, int, float, callable or instance of Dtion\Contracts\Stringable. Received: '.gettype($upper));
+            throw new InvalidArgumentException('Upper boundary can either be string, int, float, callable or instance of Dtion\Contracts\Stringable. Received: '.gettype($upper));
         }
 
         if ($lower instanceof Stringable) {
@@ -92,7 +92,7 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
      *
      * @return Dtion
      */
-    public static function make($lowerBoundary, $upperBoundary, $result) : Dtion
+    public static function make($lowerBoundary, $upperBoundary, $result): Dtion
     {
         return new self($lowerBoundary, $upperBoundary, $result);
     }

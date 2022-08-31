@@ -56,7 +56,7 @@ class DtionList implements
      *
      * @return DtionList
      */
-    public static function make($dtions = null) : DtionList
+    public static function make($dtions = null): DtionList
     {
         return new self($dtions);
     }
@@ -68,7 +68,7 @@ class DtionList implements
      *
      * @return void
      */
-    public function push(Dtion $dtion) : void
+    public function push(Dtion $dtion): void
     {
         $this->container[] = $dtion;
     }
@@ -158,13 +158,13 @@ class DtionList implements
     }
 
     /** @inheritDoc */
-    public function count() : int
+    public function count(): int
     {
         return count($this->container);
     }
 
     /** @inheritDoc */
-    public function __serialize() : array
+    public function __serialize(): array
     {
         return $this->container;
     }
@@ -176,19 +176,19 @@ class DtionList implements
     }
 
     /** @inheritDoc */
-    public function serialize() : ?string
+    public function serialize(): ?string
     {
         return serialize($this->__serialize());
     }
 
     /** @inheritDoc */
-    public function unserialize($data) : void
+    public function unserialize($data): void
     {
         $this->__unserialize(unserialize($data));
     }
 
     /** @inheritDoc */
-    public function __toString() : string
+    public function __toString(): string
     {
         return serialize($this);
     }
