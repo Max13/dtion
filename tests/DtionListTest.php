@@ -5,7 +5,6 @@ namespace Dtion\Tests;
 use Dtion\DtionList;
 use Dtion\Dtion;
 use Dtion\Exceptions\CriterionDoesntMatchException;
-use Dtion\Tests\Doubles\Stringable;
 use Faker\Factory as Faker;
 use PHPUnit\Framework\TestCase;
 
@@ -30,7 +29,7 @@ class DtionListTest extends TestCase
 
     public function testInstanciateWithDtion()
     {
-        $list = new DtionList(new Dtion(0, 0, 0));
+        $list = new DtionList([new Dtion(0, 0, 0)]);
 
         $this->assertInstanceOf(DtionList::class, $list);
         $this->assertCount(1, $list);
@@ -149,34 +148,6 @@ class DtionListTest extends TestCase
         $this->assertEquals($dtionList, unserialize($serialized));
     }
 
-    public function testSerializeWithCallables()
-    {
-        $lower = function () { return 100; };
-        $upper = function () { return 200; };
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $serialized = serialize($dtionList);
-
-        $this->assertEquals($dtionList, unserialize($serialized));
-    }
-
-    public function testSerializeWithStringable()
-    {
-        $lower = new Stringable('ghi');
-        $upper = new Stringable('rst');
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $serialized = serialize($dtionList);
-
-        $this->assertEquals($dtionList, unserialize($serialized));
-    }
-
     public function testToArrayWithStrings()
     {
         $lower = 'ghi';
@@ -217,173 +188,5 @@ class DtionListTest extends TestCase
         $array = $dtionList->toArray();
 
         $this->assertEquals($dtionList, DtionList::fromArray($array));
-    }
-
-    public function testToArrayWithCallables()
-    {
-        $lower = function () { return 100; };
-        $upper = function () { return 200; };
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $array = $dtionList->toArray();
-
-        $this->assertEquals($dtionList, DtionList::fromArray($array));
-    }
-
-    public function testToArrayWithStringable()
-    {
-        $lower = new Stringable('ghi');
-        $upper = new Stringable('rst');
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $array = $dtionList->toArray();
-
-        $this->assertEquals($dtionList, DtionList::fromArray($array));
-    }
-
-    public function testToJsonWithStrings()
-    {
-        $lower = 'ghi';
-        $upper = 'rst';
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $json = $dtionList->toJson();
-
-        $this->assertEquals($dtionList, DtionList::fromJson($json));
-    }
-
-    public function testToJsonWithInts()
-    {
-        $lower = 100;
-        $upper = 200;
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $json = $dtionList->toJson();
-
-        $this->assertEquals($dtionList, DtionList::fromJson($json));
-    }
-
-    public function testToJsonWithFloats()
-    {
-        $lower = 0.1;
-        $upper = 0.2;
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $json = $dtionList->toJson();
-
-        $this->assertEquals($dtionList, DtionList::fromJson($json));
-    }
-
-    public function testToJsonWithCallables()
-    {
-        $lower = function () { return 100; };
-        $upper = function () { return 200; };
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $json = $dtionList->toJson();
-
-        $this->assertEquals($dtionList, DtionList::fromJson($json));
-    }
-
-    public function testToJsonWithStringable()
-    {
-        $lower = new Stringable('ghi');
-        $upper = new Stringable('rst');
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $json = $dtionList->toJson();
-
-        $this->assertEquals($dtionList, DtionList::fromJson($json));
-    }
-
-    public function testToStringWithStrings()
-    {
-        $lower = 'ghi';
-        $upper = 'rst';
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $stringed = (string) $dtionList;
-
-        $this->assertEquals($dtionList, unserialize($stringed));
-    }
-
-    public function testToStringWithInts()
-    {
-        $lower = 100;
-        $upper = 200;
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $stringed = (string) $dtionList;
-
-        $this->assertEquals($dtionList, unserialize($stringed));
-    }
-
-    public function testToStringWithFloats()
-    {
-        $lower = 0.1;
-        $upper = 0.2;
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $stringed = (string) $dtionList;
-
-        $this->assertEquals($dtionList, unserialize($stringed));
-    }
-
-    public function testToStringWithCallables()
-    {
-        $lower = function () { return 100; };
-        $upper = function () { return 200; };
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $stringed = (string) $dtionList;
-
-        $this->assertEquals($dtionList, unserialize($stringed));
-    }
-
-    public function testToStringWithStringable()
-    {
-        $lower = new Stringable('ghi');
-        $upper = new Stringable('rst');
-        $dtionList = new DtionList([
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-            new Dtion($lower, $upper, null),
-        ]);
-        $stringed = (string) $dtionList;
-
-        $this->assertEquals($dtionList, unserialize($stringed));
     }
 }

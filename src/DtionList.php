@@ -5,21 +5,13 @@ namespace Dtion;
 use Countable;
 use Dtion\Contracts\Dtionable;
 use Dtion\Exceptions\CriterionDoesntMatchException;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
-use Serializable;
-use Stringable;
+use InvalidArgumentException;
 
 /**
  * This class stores a list of Dtion, allowing the user to find() the
  * corresponding Dtion (therefor the result) among multiple conditions.
  */
-class DtionList implements
-    Arrayable,
-    Jsonable,
-    Countable,
-    Serializable,
-    Stringable
+class DtionList implements Countable
 {
     /**
      * Internal container
@@ -31,19 +23,19 @@ class DtionList implements
     /**
      * Construct an empty Dtion
      *
-     * @param  Dtionable|Dtionable[]|null $dtions One or multiple dtions
-     *                                            to add to the list.
+     * @param  Dtionable[]|null $dtions One or multiple dtions
+     *                                  to add to the list.
      *
      * @return void
      */
     public function __construct($dtions = null)
     {
-        if (is_array($dtions)) {
-            foreach ($dtions as $dtion) {
-                $this->push($dtion);
-            }
-        } elseif ($dtions instanceof Dtionable) {
-            $this->push($dtions);
+        if (!is_null($dtions) && !is_array($dtions)) {
+            throw new InvalidArgumentException('Dtion\DtionList first argument only accepts array of Dtion\Dtionable or null. Received: '.gettype($dtions));
+        }
+
+        foreach ($dtions ?? [] as $dtion) {
+            $this->push($dtion);
         }
     }
 
@@ -52,14 +44,14 @@ class DtionList implements
      *
      * @see    Dtion::__construct()
      *
-     * @param  Dtionable|Dtionable[]|null $dtions One or multiple dtions
-     *                                            to add to the list.
+     * @param  Dtionable[]|null $dtions One or multiple dtions
+     *                                  to add to the list.
      *
      * @return DtionList
      */
     public static function make($dtions = null): DtionList
     {
-        return new self($dtions);
+        return new static($dtions);
     }
 
     /**
@@ -141,72 +133,34 @@ class DtionList implements
         return $data;
     }
 
-    /**
-     * Get the instance as a serializable array.
-     *
-     * @return array
-     */
-    protected function toSerializableArray(): array
-    {
-        $data = [];
-
-        foreach ($this->container as $dtion) {
-            $data[] = $dtion->toSerializableArray();
-        }
-
-        return $data;
-    }
-
-    /**
-     * Instanciate from JSON, given by self::toJson() method
-     *
-     * @param  string $data
-     * @return self
-     */
-    public static function fromJson($data)
-    {
-        return static::fromArray(json_decode($data, true));
-    }
-
-    /** @inheritDoc */
-    public function toJson($options = 0)
-    {
-        return json_encode($this->toSerializableArray(), $options);
-    }
-
     /** @inheritDoc */
     public function count(): int
     {
         return count($this->container);
     }
 
-    /** @inheritDoc */
+    /**
+     * This method defines a serialization-friendly arbitrary representation
+     * of the object in form of an array.
+     *
+     * @return array
+     */
     public function __serialize(): array
     {
         return $this->container;
     }
 
-    /** @inheritDoc */
+    /**
+     * This method is passed the restored array that was returned
+     * from __serialize(). It may then restore the properties of the
+     * object from that array as appropriate.
+     *
+     * @param  array $data
+     *
+     * @return void
+     */
     public function __unserialize(array $dtions)
     {
         $this->container = $dtions;
-    }
-
-    /** @inheritDoc */
-    public function serialize(): ?string
-    {
-        return serialize($this->__serialize());
-    }
-
-    /** @inheritDoc */
-    public function unserialize($data): void
-    {
-        $this->__unserialize(unserialize($data));
-    }
-
-    /** @inheritDoc */
-    public function __toString(): string
-    {
-        return serialize($this);
     }
 }

@@ -15,7 +15,6 @@
     ],
     "homepage": "https://github.com/max13/dtion",
     "autoload": {
-        "files": ["src/Stringable.php"],
         "psr-4" : {
             "Dtion\\": "src/"
         }
@@ -27,9 +26,7 @@
     },
     "require": {
         "ext-json": "*",
-        "php": "^7.0 || ^8.0",
-        "laravel/serializable-closure": "^1.2",
-        "illuminate/contracts": "^8.0 || ^9.0"
+        "php": "^7.0 || ^8.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",

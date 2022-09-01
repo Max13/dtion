@@ -2,15 +2,11 @@
 
 namespace Dtion\Contracts;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
-use Stringable;
-
 /**
  * This class stores the simplest form of a a condition
  * (lower and upper boundaries) and a result.
  */
-abstract class Dtionable implements Arrayable, Jsonable, Stringable
+abstract class Dtionable
 {
     /**
      * Lower boundary
@@ -69,13 +65,22 @@ abstract class Dtionable implements Arrayable, Jsonable, Stringable
         return $this->result;
     }
 
-    /** @inheritDoc */
+    /**
+     * Instanciate a Dtionable from an associative array
+     *
+     * @param  array $data
+     * @return Dtionable
+     */
     public static function fromArray(array $data)
     {
         return new static($data['lower'], $data['upper'], $data['result']);
     }
 
-    /** @inheritDoc */
+    /**
+     * Get the instance as an array.
+     *
+     * @return array<key, values>
+     */
     public function toArray()
     {
         return [
@@ -83,12 +88,6 @@ abstract class Dtionable implements Arrayable, Jsonable, Stringable
             'upper' => $this->upper,
             'result' => $this->result,
         ];
-    }
-
-    /** @inheritDoc */
-    public function toJson($options = 0)
-    {
-        return json_encode($this->toArray(), $options);
     }
 
     /**
@@ -114,11 +113,5 @@ abstract class Dtionable implements Arrayable, Jsonable, Stringable
     public function __unserialize(array $data): void
     {
         $this->__construct($data['lower'], $data['upper'], $data['result']);
-    }
-
-    /** @return string  */
-    public function __toString()
-    {
-        return serialize($this);
     }
 }
