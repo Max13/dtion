@@ -2,39 +2,16 @@
 
 namespace Dtion;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
+use Dtion\Contracts\Dtionable;
 use InvalidArgumentException;
 use Laravel\SerializableClosure\SerializableClosure;
-use Serializable;
 use Stringable;
 
 /**
  * This class stores a condition (lower and upper boundaries) and a result.
  */
-class Dtion implements Arrayable, Jsonable, Serializable, Stringable
+class Dtion extends Dtionable
 {
-    /**
-     * Lower boundary
-     *
-     * @var string|int|float|callable|Stringable
-     */
-    protected $lower;
-
-    /**
-     * Upper boundary
-     *
-     * @var string|int|float|callable|Stringable
-     */
-    protected $upper;
-
-    /**
-     * Result of the condition
-     *
-     * @var mixed
-     */
-    protected $result;
-
     /**
      * Instanciate a Dtion with a lower boundary, upper boundary and
      * the result when the criterion is between these boundaries.
@@ -71,18 +48,18 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
         }
 
         if ($lower instanceof Stringable) {
-            $this->lower = (string) $lower;
+            $lower = (string) $lower;
         } else {
-            $this->lower = $lower;
+            $lower = $lower;
         }
 
         if ($upper instanceof Stringable) {
-            $this->upper = (string) $upper;
+            $upper = (string) $upper;
         } else {
-            $this->upper = $upper;
+            $upper = $upper;
         }
 
-        $this->result = $result;
+        parent::__construct($lower, $upper, $result);
     }
 
     /**
@@ -98,23 +75,13 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
     }
 
     /**
-     * Return the stored result
-     *
-     * @return mixed
-     */
-    public function result()
-    {
-        return $this->result;
-    }
-
-    /**
      * Match a criterion with lower and upper boundaries.
      *
      * @param  mixed $criterion
      *
      * @return bool
      */
-    public function match($criterion)
+    public function match($criterion): bool
     {
         if (is_callable($this->lower)) {
             $lower = call_user_func($this->lower, $criterion);
@@ -136,6 +103,20 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
     }
 
     /**
+     * Check if given value is a SerializableClosure
+     *
+     * @param  string $value
+     * @return bool
+     */
+    protected static function isSerializedClosure(string $value)
+    {
+        $serializableClosure = 'O:47:"Laravel\SerializableClosure\SerializableClosure"';
+        $substr = substr($value, 0, strlen($serializableClosure));
+
+        return $substr === $serializableClosure;
+    }
+
+    /**
      * Normalize data if necessary, before sending to constructor
      *
      * @param  array $data
@@ -143,19 +124,9 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
      */
     public static function normalize(array $data)
     {
-        $serializableClosure = 'O:47:"Laravel\SerializableClosure\SerializableClosure"';
-
         foreach (['lower', 'upper', 'result'] as $key) {
-            // Check if serialized SerializableClosure
-            if (
-                   is_string($data[$key])
-                && substr($data[$key], 0, strlen($serializableClosure)) === $serializableClosure
-            ) {
-                $data[$key] = unserialize($data[$key]);
-            }
-
-            if ($data[$key] instanceof SerializableClosure) {
-                $data[$key] = $data[$key]->getClosure();
+            if (is_string($data[$key]) && static::isSerializedClosure($data[$key])) {
+                $data[$key] = unserialize($data[$key])->getClosure();
             }
         }
 
@@ -170,21 +141,21 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
      */
     public static function fromArray(array $data)
     {
-        $data = static::normalize($data);
-
-        return new static($data['lower'], $data['upper'], $data['result']);
+        return parent::fromArray(static::normalize($data));
     }
 
-    /** @inheritDoc */
-    public function toArray()
+    /**
+     * Get the instance as a serializable array.
+     *
+     * @return array
+     */
+    public function toSerializableArray(): array
     {
-        $data = [];
+        $data = parent::toArray();
 
-        foreach (['lower', 'upper', 'result'] as $key) {
-            if (is_callable($this->{$key})) {
-                $data[$key] = serialize(new SerializableClosure($this->{$key}));
-            } else {
-                $data[$key] = $this->{$key};
+        foreach ($data as &$val) {
+            if (is_callable($val)) {
+                $val = serialize(new SerializableClosure($val));
             }
         }
 
@@ -205,38 +176,18 @@ class Dtion implements Arrayable, Jsonable, Serializable, Stringable
     /** @inheritDoc */
     public function toJson($options = 0)
     {
-        return json_encode($this->toArray(), $options);
+        return json_encode($this->toSerializableArray(), $options);
     }
 
     /** @inheritDoc */
-    public function __serialize() : array
+    public function __serialize(): array
     {
-        return $this->toArray();
+        return $this->toSerializableArray();
     }
 
     /** @inheritDoc */
-    public function __unserialize(array $data) : void
+    public function __unserialize(array $data): void
     {
-        $data = static::normalize($data);
-
-        $this->__construct($data['lower'], $data['upper'], $data['result']);
-    }
-
-    /** @inheritDoc */
-    public function serialize() : ?string
-    {
-        return serialize($this->__serialize());
-    }
-
-    /** @inheritDoc */
-    public function unserialize($data) : void
-    {
-        $this->__unserialize(unserialize($data));
-    }
-
-    /** @inheritDoc */
-    public function __toString() : string
-    {
-        return serialize($this);
+        parent::__unserialize(static::normalize($data));
     }
 }

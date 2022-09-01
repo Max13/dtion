@@ -3,6 +3,7 @@
 namespace Dtion;
 
 use Countable;
+use Dtion\Contracts\Dtionable;
 use Dtion\Exceptions\CriterionDoesntMatchException;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
@@ -23,15 +24,15 @@ class DtionList implements
     /**
      * Internal container
      *
-     * @var Dtion[]
+     * @var Dtionable[]
      */
     protected $container = [];
 
     /**
      * Construct an empty Dtion
      *
-     * @param  Dtion|Dtion[]|null $dtions   One or multiple dtions to add
-     *                                      to the list.
+     * @param  Dtionable|Dtionable[]|null $dtions One or multiple dtions
+     *                                            to add to the list.
      *
      * @return void
      */
@@ -41,7 +42,7 @@ class DtionList implements
             foreach ($dtions as $dtion) {
                 $this->push($dtion);
             }
-        } elseif ($dtions instanceof Dtion) {
+        } elseif ($dtions instanceof Dtionable) {
             $this->push($dtions);
         }
     }
@@ -51,8 +52,8 @@ class DtionList implements
      *
      * @see    Dtion::__construct()
      *
-     * @param  Dtion|Dtion[]|null $dtions   One or multiple dtions to add
-     *                                      to the list.
+     * @param  Dtionable|Dtionable[]|null $dtions One or multiple dtions
+     *                                            to add to the list.
      *
      * @return DtionList
      */
@@ -64,11 +65,11 @@ class DtionList implements
     /**
      * Push a Dtion to the list.
      *
-     * @param  Dtion $dtion
+     * @param  Dtionable $dtion
      *
      * @return void
      */
-    public function push(Dtion $dtion): void
+    public function push(Dtionable $dtion): void
     {
         $this->container[] = $dtion;
     }
@@ -78,9 +79,9 @@ class DtionList implements
      *
      * @param  mixed $criterion
      *
-     * @return Dtion|null
+     * @return Dtionable|null
      */
-    public function find($criterion) : ?Dtion
+    public function find($criterion) : ?Dtionable
     {
         foreach ($this->container as $dtion) {
             if ($dtion->match($criterion)) {
@@ -141,6 +142,22 @@ class DtionList implements
     }
 
     /**
+     * Get the instance as a serializable array.
+     *
+     * @return array
+     */
+    protected function toSerializableArray(): array
+    {
+        $data = [];
+
+        foreach ($this->container as $dtion) {
+            $data[] = $dtion->toSerializableArray();
+        }
+
+        return $data;
+    }
+
+    /**
      * Instanciate from JSON, given by self::toJson() method
      *
      * @param  string $data
@@ -154,7 +171,7 @@ class DtionList implements
     /** @inheritDoc */
     public function toJson($options = 0)
     {
-        return json_encode($this->toArray(), $options);
+        return json_encode($this->toSerializableArray(), $options);
     }
 
     /** @inheritDoc */
