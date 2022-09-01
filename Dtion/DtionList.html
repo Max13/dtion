@@ -75,7 +75,7 @@
     
     <p>        class
     <strong>DtionList</strong>        implements
-        <abbr title="Illuminate\Contracts\Support\Arrayable">Arrayable</abbr>, <abbr title="Illuminate\Contracts\Support\Jsonable">Jsonable</abbr>, <a target="_blank" rel="noopener" href="https://www.php.net/Countable">Countable</a>, <a target="_blank" rel="noopener" href="https://www.php.net/Serializable">Serializable</a>, <a href="../Stringable.html">Stringable</a>
+        <a target="_blank" rel="noopener" href="https://www.php.net/Countable">Countable</a>
 </p>
 
         
@@ -111,7 +111,7 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
                     void
                 </div>
                 <div class="col-md-8">
-                    <a href="#method___construct">__construct</a>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
+                    <a href="#method___construct">__construct</a>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
         
                                             <p><p>Construct an empty Dtion</p></p>                </div>
                 <div class="col-md-2"></div>
@@ -121,7 +121,7 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
                     static&nbsp;<a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a>
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_make">make</a>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
+                    <a href="#method_make">make</a>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
         
                                             <p><p>Static mode to instanciate a Dtion</p></p>                </div>
                 <div class="col-md-2"></div>
@@ -179,37 +179,6 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_toSerializableArray">toSerializableArray</a>()
-        
-                                            <p><p>Get the instance as a serializable array.</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;<a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a>
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_fromJson">fromJson</a>(string $data)
-        
-                                            <p><p>Instanciate from JSON, given by self::toJson() method</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_toJson">toJson</a>($options = 0)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
                     int
                 </div>
                 <div class="col-md-8">
@@ -226,30 +195,8 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
                 <div class="col-md-8">
                     <a href="#method___serialize">__serialize</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method___unserialize">__unserialize</a>(array $dtions)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string|null
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_serialize">serialize</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>This method defines a serialization-friendly arbitrary representation
+of the object in form of an array.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -257,21 +204,11 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
                     void
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_unserialize">unserialize</a>($data)
+                    <a href="#method___unserialize">__unserialize</a>(array $dtions)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string
-                </div>
-                <div class="col-md-8">
-                    <a href="#method___toString">__toString</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>This method is passed the restored array that was returned
+from __serialize(). It may then restore the properties of the
+object from that array as appropriate.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -282,9 +219,9 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 39</div>
+        <div class="location">at line 31</div>
         <code>                    void
-    <strong>__construct</strong>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
+    <strong>__construct</strong>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
         </code>
     </h3>
     <div class="details">    
@@ -299,7 +236,7 @@ corresponding Dtion (therefor the result) among multiple conditions.</p></p>    
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null</td>
+                <td><a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null</td>
                 <td>$dtions</td>
                 <td><p>One or multiple dtions
 to add to the list.</p></td>
@@ -325,9 +262,9 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_make">
-        <div class="location">at line 60</div>
+        <div class="location">at line 52</div>
         <code>        static            <a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a>
-    <strong>make</strong>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
+    <strong>make</strong>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null $dtions = null)
         </code>
     </h3>
     <div class="details">    
@@ -342,7 +279,7 @@ to add to the list.</p></td>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>|<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null</td>
+                <td><a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>[]|null</td>
                 <td>$dtions</td>
                 <td><p>One or multiple dtions
 to add to the list.</p></td>
@@ -366,8 +303,7 @@ to add to the list.</p></td>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-                                            <a href="../Dtion/Dtion.html#method___construct">
-<abbr title="Dtion\Dtion">Dtion</abbr>::__construct</a>
+                                            \Dtion\Dtion::__construct()
                                     </td>
                 <td></td>
             </tr>
@@ -380,7 +316,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_push">
-        <div class="location">at line 72</div>
+        <div class="location">at line 64</div>
         <code>                    void
     <strong>push</strong>(<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> $dtion)
         </code>
@@ -422,7 +358,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_find">
-        <div class="location">at line 84</div>
+        <div class="location">at line 76</div>
         <code>                    <abbr title="Dtion\Dtion\Contracts\Dtionable">Dtionable</abbr>|null
     <strong>find</strong>(mixed $criterion)
         </code>
@@ -464,7 +400,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_resultFor">
-        <div class="location">at line 104</div>
+        <div class="location">at line 96</div>
         <code>                    mixed
     <strong>resultFor</strong>(mixed $criterion)
         </code>
@@ -515,7 +451,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_fromArray">
-        <div class="location">at line 121</div>
+        <div class="location">at line 113</div>
         <code>        static            <a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a>
     <strong>fromArray</strong>(array $data)
         </code>
@@ -557,7 +493,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at line 133</div>
+        <div class="location">at line 125</div>
         <code>                    
     <strong>toArray</strong>()
         </code>
@@ -580,116 +516,8 @@ to add to the list.</p></td>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_toSerializableArray">
-        <div class="location">at line 149</div>
-        <code>            protected        array
-    <strong>toSerializableArray</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Get the instance as a serializable array.</p></p>                        
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>array</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_fromJson">
-        <div class="location">at line 166</div>
-        <code>        static            <a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a>
-    <strong>fromJson</strong>(string $data)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Instanciate from JSON, given by self::toJson() method</p></p>                        
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../Dtion/DtionList.html"><abbr title="Dtion\DtionList">DtionList</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_toJson">
-        <div class="location">at line 172</div>
-        <code>                    
-    <strong>toJson</strong>($options = 0)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$options</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at line 178</div>
+        <div class="location">at line 137</div>
         <code>                    int
     <strong>count</strong>()
         </code>
@@ -722,7 +550,7 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method___serialize">
-        <div class="location">at line 184</div>
+        <div class="location">at line 148</div>
         <code>                    array
     <strong>__serialize</strong>()
         </code>
@@ -732,8 +560,8 @@ to add to the list.</p></td>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>This method defines a serialization-friendly arbitrary representation
+of the object in form of an array.</p></p>                        
         </div>
         <div class="tags">
             
@@ -755,8 +583,8 @@ to add to the list.</p></td>
             </div>
                     <div class="method-item">
                     <h3 id="method___unserialize">
-        <div class="location">at line 190</div>
-        <code>                    
+        <div class="location">at line 162</div>
+        <code>                    void
     <strong>__unserialize</strong>(array $dtions)
         </code>
     </h3>
@@ -765,8 +593,9 @@ to add to the list.</p></td>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>This method is passed the restored array that was returned
+from __serialize(). It may then restore the properties of the
+object from that array as appropriate.</p></p>                        
         </div>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -780,111 +609,11 @@ to add to the list.</p></td>
             </table>
 
             
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_serialize">
-        <div class="location">at line 196</div>
-        <code>                    string|null
-    <strong>serialize</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string|null</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_unserialize">
-        <div class="location">at line 202</div>
-        <code>                    void
-    <strong>unserialize</strong>($data)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___toString">
-        <div class="location">at line 208</div>
-        <code>                    string
-    <strong>__toString</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
             <td></td>
         </tr>
     </table>

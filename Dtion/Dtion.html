@@ -132,9 +132,10 @@
                 <div class="col-md-8">
                     <a href="#method___construct">__construct</a>(mixed $lower, mixed $upper, mixed $result)
         
-                                            <p><p>Instanciate a Dtion with a lower boundary, upper boundary and
+                                            <p><p>Instanciate a Dtionable with a lower boundary, upper boundary and
 the result when the criterion is between these boundaries.</p></p>                </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method___construct">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
@@ -159,36 +160,25 @@ the result when the criterion is between these boundaries.</p></p>              
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;<a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>
                 </div>
                 <div class="col-md-8">
                     <a href="#method_fromArray">fromArray</a>(array $data)
         
-                                            <p><p>Instanciate from array, given by self::toArray() method</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_toArray">toArray</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method_toArray">
+                                            <p><p>Instanciate a Dtionable from an associative array</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method_fromArray">
 <abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr>
                 </div>
                 <div class="col-md-8">
-                    <a href="#method_toJson">toJson</a>($options = 0)
+                    <a href="#method_toArray">toArray</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
+                                            <p><p>Get the instance as an array.</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method_toArray">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
@@ -197,9 +187,10 @@ the result when the criterion is between these boundaries.</p></p>              
                 <div class="col-md-8">
                     <a href="#method___serialize">__serialize</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
+                                            <p><p>This method defines a serialization-friendly arbitrary representation
+of the object in form of an array.</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method___serialize">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
@@ -208,20 +199,10 @@ the result when the criterion is between these boundaries.</p></p>              
                 <div class="col-md-8">
                     <a href="#method___unserialize">__unserialize</a>(array $data)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string
-                </div>
-                <div class="col-md-8">
-                    <a href="#method___toString">__toString</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method___toString">
+                                            <p><p>This method is passed the restored array that was returned
+from __serialize(). It may then restore the properties of the
+object from that array as appropriate.</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Dtion/Contracts/Dtionable.html#method___unserialize">
 <abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></small></div>
             </div>
                     <div class="row">
@@ -234,46 +215,6 @@ the result when the criterion is between these boundaries.</p></p>              
                                             <p><p>Static mode to instanciate a Dtion</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;bool
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_isSerializedClosure">isSerializedClosure</a>(string $value)
-        
-                                            <p><p>Check if given value is a SerializableClosure</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;array
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_normalize">normalize</a>(array $data)
-        
-                                            <p><p>Normalize data if necessary, before sending to constructor</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    array
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_toSerializableArray">toSerializableArray</a>()
-        
-                                            <p><p>Get the instance as a serializable array.</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;<a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_fromJson">fromJson</a>(string $data)
-        
-                                            <p><p>Instanciate from JSON, given by self::toJson() method</p></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
             </div>
 
 
@@ -282,7 +223,8 @@ the result when the criterion is between these boundaries.</p></p>              
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 32</div>
+        <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method___construct">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 42</div>
         <code>                    void
     <strong>__construct</strong>(mixed $lower, mixed $upper, mixed $result)
         </code>
@@ -292,12 +234,8 @@ the result when the criterion is between these boundaries.</p></p>              
             
 
         <div class="method-description">
-                            <p><p>Instanciate a Dtion with a lower boundary, upper boundary and
-the result when the criterion is between these boundaries.</p></p>                <p><p>Callables boundaries are called with the criterion as first argument,
-but will be returned as callable for the result.</p>
-<p>WARNING: Be careful when using callable, as they can be serialized
-and can have side effects when unserialized. Don't use untrusted user
-inputs as callable.</p></p>        
+                            <p><p>Instanciate a Dtionable with a lower boundary, upper boundary and
+the result when the criterion is between these boundaries.</p></p>                        
         </div>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -339,7 +277,7 @@ inputs as callable.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_match">
-        <div class="location">at line 88</div>
+        <div class="location">at line 31</div>
         <code>                    bool
     <strong>match</strong>(mixed $criterion)
         </code>
@@ -382,7 +320,7 @@ inputs as callable.</p></p>
                     <div class="method-item">
                     <h3 id="method_result">
         <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method_result">
-<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 67</div>
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 63</div>
         <code>                    mixed
     <strong>result</strong>()
         </code>
@@ -414,8 +352,9 @@ inputs as callable.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_fromArray">
-        <div class="location">at line 146</div>
-        <code>        static            
+        <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method_fromArray">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 74</div>
+        <code>        static            <a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>
     <strong>fromArray</strong>(array $data)
         </code>
     </h3>
@@ -424,7 +363,7 @@ inputs as callable.</p></p>
             
 
         <div class="method-description">
-                            <p><p>Instanciate from array, given by self::toArray() method</p></p>                        
+                            <p><p>Instanciate a Dtionable from an associative array</p></p>                        
         </div>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -438,6 +377,15 @@ inputs as callable.</p></p>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -448,8 +396,8 @@ inputs as callable.</p></p>
                     <div class="method-item">
                     <h3 id="method_toArray">
         <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method_toArray">
-<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 79</div>
-        <code>                    
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 84</div>
+        <code>                    <abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr>
     <strong>toArray</strong>()
         </code>
     </h3>
@@ -458,45 +406,19 @@ inputs as callable.</p></p>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>Get the instance as an array.</p></p>                        
         </div>
         <div class="tags">
             
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_toJson">
-        <div class="location">at line 181</div>
-        <code>                    
-    <strong>toJson</strong>($options = 0)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$options</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td><abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr></td>
+            <td></td>
+        </tr>
+    </table>
 
-            
             
             
             
@@ -506,7 +428,8 @@ inputs as callable.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___serialize">
-        <div class="location">at line 187</div>
+        <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method___serialize">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 99</div>
         <code>                    array
     <strong>__serialize</strong>()
         </code>
@@ -516,8 +439,8 @@ inputs as callable.</p></p>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>This method defines a serialization-friendly arbitrary representation
+of the object in form of an array.</p></p>                        
         </div>
         <div class="tags">
             
@@ -539,7 +462,8 @@ inputs as callable.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___unserialize">
-        <div class="location">at line 193</div>
+        <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method___unserialize">
+<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 113</div>
         <code>                    void
     <strong>__unserialize</strong>(array $data)
         </code>
@@ -549,8 +473,9 @@ inputs as callable.</p></p>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>This method is passed the restored array that was returned
+from __serialize(). It may then restore the properties of the
+object from that array as appropriate.</p></p>                        
         </div>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -581,42 +506,8 @@ inputs as callable.</p></p>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method___toString">
-        <div class="location">in <a href="../Dtion/Contracts/Dtionable.html#method___toString">
-<abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a> at line 120</div>
-        <code>                    string
-    <strong>__toString</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_make">
-        <div class="location">at line 76</div>
+        <div class="location">at line 19</div>
         <code>        static            <a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
     <strong>make</strong>($lowerBoundary, $upperBoundary, $result)
         </code>
@@ -666,171 +557,12 @@ inputs as callable.</p></p>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-                                            <a href="../Dtion/Dtion.html#method___construct">
-<abbr title="Dtion\Dtion">Dtion</abbr>::__construct</a>
+                                            \Dtion\Dtion::__construct()
                                     </td>
                 <td></td>
             </tr>
             </table>
 
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isSerializedClosure">
-        <div class="location">at line 115</div>
-        <code>        static    protected        bool
-    <strong>isSerializedClosure</strong>(string $value)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Check if given value is a SerializableClosure</p></p>                        
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$value</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_normalize">
-        <div class="location">at line 129</div>
-        <code>        static            array
-    <strong>normalize</strong>(array $data)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Normalize data if necessary, before sending to constructor</p></p>                        
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>array</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_toSerializableArray">
-        <div class="location">at line 156</div>
-        <code>                    array
-    <strong>toSerializableArray</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Get the instance as a serializable array.</p></p>                        
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>array</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_fromJson">
-        <div class="location">at line 175</div>
-        <code>        static            <a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a>
-    <strong>fromJson</strong>(string $data)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p><p>Instanciate from JSON, given by self::toJson() method</p></p>                        
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../Dtion/Dtion.html"><abbr title="Dtion\Dtion">Dtion</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
             
                     </div>
     </div>

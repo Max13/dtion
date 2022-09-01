@@ -74,8 +74,7 @@
 
     
     <p>    abstract     class
-    <strong>Dtionable</strong>        implements
-        <abbr title="Illuminate\Contracts\Support\Arrayable">Arrayable</abbr>, <abbr title="Illuminate\Contracts\Support\Jsonable">Jsonable</abbr>, <a href="../../Stringable.html">Stringable</a>
+    <strong>Dtionable</strong>
 </p>
 
         
@@ -157,35 +156,22 @@ the result when the criterion is between these boundaries.</p></p>              
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;
+                    static&nbsp;<a href="../../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>
                 </div>
                 <div class="col-md-8">
                     <a href="#method_fromArray">fromArray</a>(array $data)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Instanciate a Dtionable from an associative array</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr>
                 </div>
                 <div class="col-md-8">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8">
-                    <a href="#method_toJson">toJson</a>($options = 0)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p><p>Get the instance as an array.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -211,17 +197,6 @@ from __serialize(). It may then restore the properties of the
 object from that array as appropriate.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string
-                </div>
-                <div class="col-md-8">
-                    <a href="#method___toString">__toString</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
             </div>
 
 
@@ -230,7 +205,7 @@ object from that array as appropriate.</p></p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 46</div>
+        <div class="location">at line 42</div>
         <code>                    void
     <strong>__construct</strong>(mixed $lower, mixed $upper, mixed $result)
         </code>
@@ -283,7 +258,7 @@ the result when the criterion is between these boundaries.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_match">
-        <div class="location">at line 60</div>
+        <div class="location">at line 56</div>
         <code>    abstract                bool
     <strong>match</strong>(mixed $criterion)
         </code>
@@ -325,7 +300,7 @@ the result when the criterion is between these boundaries.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_result">
-        <div class="location">at line 67</div>
+        <div class="location">at line 63</div>
         <code>                    mixed
     <strong>result</strong>()
         </code>
@@ -357,8 +332,8 @@ the result when the criterion is between these boundaries.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_fromArray">
-        <div class="location">at line 73</div>
-        <code>        static            
+        <div class="location">at line 74</div>
+        <code>        static            <a href="../../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a>
     <strong>fromArray</strong>(array $data)
         </code>
     </h3>
@@ -367,8 +342,7 @@ the result when the criterion is between these boundaries.</p></p>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>Instanciate a Dtionable from an associative array</p></p>                        
         </div>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -382,6 +356,15 @@ the result when the criterion is between these boundaries.</p></p>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Dtion/Contracts/Dtionable.html"><abbr title="Dtion\Contracts\Dtionable">Dtionable</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
             
@@ -391,8 +374,8 @@ the result when the criterion is between these boundaries.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at line 79</div>
-        <code>                    
+        <div class="location">at line 84</div>
+        <code>                    <abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr>
     <strong>toArray</strong>()
         </code>
     </h3>
@@ -401,45 +384,19 @@ the result when the criterion is between these boundaries.</p></p>
             
 
         <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
+                            <p><p>Get the instance as an array.</p></p>                        
         </div>
         <div class="tags">
             
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_toJson">
-        <div class="location">at line 89</div>
-        <code>                    
-    <strong>toJson</strong>($options = 0)
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td></td>
-                <td>$options</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td><abbr title="Dtion\Contracts\array&lt;string,\Dtion\Contracts\values&gt;">values&gt;</abbr></td>
+            <td></td>
+        </tr>
+    </table>
 
-            
             
             
             
@@ -449,7 +406,7 @@ the result when the criterion is between these boundaries.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___serialize">
-        <div class="location">at line 100</div>
+        <div class="location">at line 99</div>
         <code>                    array
     <strong>__serialize</strong>()
         </code>
@@ -482,7 +439,7 @@ of the object in form of an array.</p></p>
             </div>
                     <div class="method-item">
                     <h3 id="method___unserialize">
-        <div class="location">at line 114</div>
+        <div class="location">at line 113</div>
         <code>                    void
     <strong>__unserialize</strong>(array $data)
         </code>
@@ -513,39 +470,6 @@ object from that array as appropriate.</p></p>
                     <table class="table table-condensed">
         <tr>
             <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___toString">
-        <div class="location">at line 120</div>
-        <code>                    string
-    <strong>__toString</strong>()
-        </code>
-    </h3>
-    <div class="details">    
-    
-            
-
-        <div class="method-description">
-                            <p class="no-description">No description</p>
-                    
-        </div>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
             <td></td>
         </tr>
     </table>
