@@ -19,6 +19,10 @@ class Dtion extends Dtionable
      * Callables boundaries are called with the criterion as first argument,
      * but will be returned as callable for the result.
      *
+     * WARNING: Be careful when using callable, as they can be serialized
+     * and can have side effects when unserialized. Don't use untrusted user
+     * inputs as callable.
+     *
      * @param  string|int|float|callable|Stringable $lower  Lower boundary
      * @param  string|int|float|callable|Stringable $upper  Upper boundary
      * @param  mixed                                $result
