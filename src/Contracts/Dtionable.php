@@ -79,7 +79,7 @@ abstract class Dtionable
     /**
      * Get the instance as an array.
      *
-     * @return array<key, values>
+     * @return array<string, values>
      */
     public function toArray()
     {
